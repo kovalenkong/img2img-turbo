@@ -169,3 +169,7 @@ outputs/bird.png
 data
 wandb
 output/
+
+# ===== CUSTOM =====
+.idea/
+test*.py
