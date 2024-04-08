@@ -155,11 +155,11 @@ class Pix2Pix_Turbo(torch.nn.Module):
             self.target_modules_unet = target_modules_unet
 
         # unet.enable_xformers_memory_efficient_attention()
-        unet.to("cuda")
-        vae.to("cuda")
+        unet.to("cpu")
+        vae.to("cpu")
         self.unet, self.vae = unet, vae
         self.vae.decoder.gamma = 1
-        self.timesteps = torch.tensor([999], device="cuda").long()
+        self.timesteps = torch.tensor([999], device="cpu").long()
         self.text_encoder.requires_grad_(False)
 
     def set_eval(self):
